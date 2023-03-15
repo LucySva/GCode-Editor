@@ -1,0 +1,65 @@
+﻿
+Intro:
+
+Since I'm looking for a job as a C# programmer, this application is my code refference
+so that others can see how I code. If well or bad, someone else would have to tell me.
+
+To develop the logic with a Real Life Tests on the CNC machine took about 3 days,
+another week of carefull CNC milling and bug fixing, and about three to four weeks to 
+finish the application to the look at which it is now.
+
+So, let me know, what do you think about the C# code and let's hope that the first 
+think I receive back would not be to ditch the comments :D
+
+BTW: Those custom buttons with manualy coded graphics, yes thay could be loaded from
+     a drawing and the whole process could be much much much faster, but where would be
+     the fun and challenge by doing that :)
+
+-----------------------------------------------------------------------------------------
+
+About G-Code Editor:
+
+This G-Code Editor was only created because Autodesk team working on Fusion 360 decided
+to release an update to lower the speed for Non-Commercial Users (as a Hobby).
+
+The incredible increase in machining time and the consumption of electricity was horrible
+and so the idea to get around it was born !
+
+When the G-Code file is loaded (this file has to come from Autodesk Fusion 360), 
+G-Code Editor searches for those specific limiting lines (Highlighted in Red) and offers 
+back a solution (Highlighted in Blue).
+
+You can inspect the Original Code side and when you find a Red line that you want to see
+in the Modified Code side, all you need to do is to click on that line.
+
+What ever changes you do to the Original Code side won't effect the Modified Code side.
+If you want to make manual changes (which is dangerous), just edit the lines in the
+Modified Code side.
+
+Save the file as .txt (for further file inspection) or .tap as an CNC Mach3 Input file.
+
+Few G-Codes refferences are written under the Original Code Text Area, they are used 
+for quick orientation. Just the most useful once are selected (useful for me, at least).
+
+But, i have to warn you, this program was build by me alone and it was not intended for
+anyone else. If by any chance Autodesk team decides to make an counter G-Code update
+that would do who knows what, I might catch it months after the update. 
+Because, you know, I'm a Hobby user (I'm not CNC milling every week).
+
+-----------------------------------------------------------------------------------------
+
+Warning:
+
+This program is very capable in making your CNC machine to make sudden and unexpected 
+movements that might damage it, if not stopped by an "Emergency Stop" manually.
+
+I have to say this, i will not be responsible for any damage you make by using this program,
+wether the damage might be your health or property. And so, I do not recommend using it !
+If something happens, you are responsible for your own actions (You have been warned !).
+
+---------------------------
+
+And that is all, I think..
+Have a Great day :)
+
+Lucy
