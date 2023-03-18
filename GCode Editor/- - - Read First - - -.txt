@@ -1,4 +1,9 @@
 ﻿
+1) Intro
+2) Fast Description
+3) About G-Code Editor
+4) Warning
+
 Intro:
 
 Since I'm looking for a job as a C# programmer, this application is my code refference
@@ -14,6 +19,23 @@ think I receive back would not be to ditch the comments :D
 BTW: Those custom buttons with manualy coded graphics, yes thay could be loaded from
      a drawing and the whole process could be much much much faster, but where would be
      the fun and challenge by doing that :)
+
+-----------------------------------------------------------------------------------------
+
+Fast Description:
+
+The FormBorderStyle is turned off.
+
+Only uploaded Graphics is the icon .ico, rest is hard coded (so much fun).
+
+Custom Graphics is used on the Buttons, Panels and on the Main Form, driven by Event 
+calls and not by Pain Overrides.
+
+Async / Await is used for the Custom Progress Bar.
+
+Main Form has a custom Resize Panels with Drag & Drop and an Autosave function, which 
+saves application Location And Size (Settings.txt), which in case of a problem can be
+simply deleted (new one will take its place).
 
 -----------------------------------------------------------------------------------------
 
