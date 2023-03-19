@@ -56,6 +56,10 @@ namespace GCode_Editor
         // Application Size
         readonly int applicationMinimalWidth = 830;
         readonly int applicationMinimalHeight = 415;
+        readonly int defaultWidth = 1146;
+        readonly int defaultHeight = 720;
+        readonly string defaultSavingWidth = "Width=1146";
+        readonly string defaultSavingHeight = "Height=720";
 
         // Small Loaded Files Skipping
         readonly int skipProgressBarGraphicsInSmallFiles = 400; // 400 and less
@@ -114,31 +118,39 @@ namespace GCode_Editor
                     // Reading > Splitting > Storing
                     foreach (var item in File.ReadLines(settingFilePath))
                     {
-                        splitArray = item.Split('=');
-                        settingsListDictionary.Add(splitArray[0], splitArray[1]);
+                        if (item.Contains('='))
+                        {
+                            splitArray = item.Split('=');
+                            settingsListDictionary.Add(splitArray[0], splitArray[1]);
+                        }
                     }
 
                     int locX = 0;
                     int locY = 0;
+                    int defaultLocationX = (Screen.PrimaryScreen.WorkingArea.Width / 2) - (Width / 2);
+                    int defaultLocationY = (Screen.PrimaryScreen.WorkingArea.Height / 2) - (Height / 2);
 
                     // Loading the settings
                     foreach (var item in settingsListDictionary)
                     {
-                        if (item.Key == "Width")
+                        if (item.Value != "" && item.Value != " ")
                         {
-                            Width = int.Parse(item.Value);
-                        }
-                        else if (item.Key == "Height")
-                        {
-                            Height = int.Parse(item.Value);
-                        }
-                        else if (item.Key == "LocationX")
-                        {
-                            locX = int.Parse(item.Value);
-                        }
-                        else if (item.Key == "LocationY")
-                        {
-                            locY = int.Parse(item.Value);
+                            if (item.Key == "Width")
+                            {
+                                Width = (int.TryParse(item.Value, out _) == true) ? Convert.ToInt32(item.Value) : defaultWidth;
+                            }
+                            else if (item.Key == "Height")
+                            {
+                                Height = (int.TryParse(item.Value, out _) == true) ? Convert.ToInt32(item.Value) : defaultHeight;
+                            }
+                            else if (item.Key == "LocationX")
+                            {
+                                locX = (int.TryParse(item.Value, out _) == true) ? Convert.ToInt32(item.Value) : defaultLocationX;
+                            }
+                            else if (item.Key == "LocationY")
+                            {
+                                locY = (int.TryParse(item.Value, out _) == true) ? Convert.ToInt32(item.Value) : defaultLocationY;
+                            }
                         }
                     }
 
@@ -951,8 +963,8 @@ namespace GCode_Editor
                 // Make Default Settings
                 using (StreamWriter sr = new StreamWriter(settingFilePath))
                 {
-                    sr.WriteLine("Width=1146");
-                    sr.WriteLine("Height=720");
+                    sr.WriteLine(defaultSavingWidth);
+                    sr.WriteLine(defaultSavingHeight);
 
                     sr.Close();
                 }
@@ -967,8 +979,24 @@ namespace GCode_Editor
                 // Reading > Splitting > Storing
                 foreach (var item in File.ReadLines(settingFilePath))
                 {
-                    splitArray = item.Split('=');
-                    settingsListDictionary.Add(splitArray[0], splitArray[1]);
+                    if (item != "" && item != " ")
+                    {
+                        if (item.Contains('='))
+                        {
+                            try
+                            {
+                                splitArray = item.Split('=');
+
+                                // Can't have duplicite Keys
+                                if (settingsListDictionary.ContainsKey(splitArray[0]) == false)
+                                    settingsListDictionary.Add(splitArray[0], splitArray[1]);
+                            }
+                            catch (Exception e)
+                            {
+                                MessageBox.Show(e.Message);
+                            }
+                        }
+                    }
                 }
 
                 // Changing the Setting Value
