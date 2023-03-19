@@ -135,6 +135,8 @@ namespace GCode_Editor
                     {
                         if (item.Value != "" && item.Value != " ")
                         {
+                            // If the user changes the Key, new one will be made. If the user make changes to the Value inside
+                            // the Settings.txt, then the default values will be triggered. For now this looks like foolproof.
                             if (item.Key == "Width")
                             {
                                 Width = (int.TryParse(item.Value, out _) == true) ? Convert.ToInt32(item.Value) : defaultWidth;
