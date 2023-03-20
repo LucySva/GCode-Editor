@@ -1,4 +1,4 @@
-# GCode-Editor
+# GCode-Editor (Made in WinForms)
 
 Removing the speed limit that was placed in the G-Code for CNC machines.<br>
 
