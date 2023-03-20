@@ -1,8 +1,9 @@
 ﻿
 1) Intro
-2) Fast Description
-3) About G-Code Editor
-4) Warning
+2) Test File (for you, the reader :))
+3) Fast Description
+4) About G-Code Editor
+5) Warning
 
 Intro:
 
@@ -19,6 +20,13 @@ think I receive back would not be to ditch the comments :D
 BTW: Those custom buttons with manualy coded graphics, yes thay could be loaded from
      a drawing and the whole process could be much much much faster, but where would be
      the fun and challenge by doing that :)
+     
+-----------------------------------------------------------------------------------------
+
+Test File:
+
+In the "GCode Editor" folder there is a "Un-EditedG-CodeSample.tap" file, you can load
+that file into the G-Code Editor and see how the application works.
 
 -----------------------------------------------------------------------------------------
 
